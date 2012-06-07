@@ -51,7 +51,7 @@ namespace VirusAquarium {
 
 		protected void OnDrawTick(object sender, EventArgs e) {
 			foreach(ScreensaverForm ssf in formList){
-				ssf
+				ssf.UpdateView();
 			}
 		}
 
