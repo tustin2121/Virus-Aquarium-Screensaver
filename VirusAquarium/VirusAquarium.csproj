@@ -46,29 +46,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MasterControl.cs" />
-    <Compile Include="PreviewForm.cs">
+    <Compile Include="Forms\PreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PreviewForm.Designer.cs">
+    <Compile Include="Forms\PreviewForm.Designer.cs">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScreensaverForm.cs">
+    <Compile Include="Forms\Program.cs" />
+    <Compile Include="Forms\ScreensaverForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ScreensaverForm.Designer.cs">
+    <Compile Include="Forms\ScreensaverForm.Designer.cs">
       <DependentUpon>ScreensaverForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingsForm.cs">
+    <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettingsForm.Designer.cs">
+    <Compile Include="Forms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PreviewForm.resx">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Simulation\MasterControl.cs" />
+    <Compile Include="Simulation\Simulation.cs" />
+    <EmbeddedResource Include="Forms\PreviewForm.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ScreensaverForm.resx">
+      <DependentUpon>ScreensaverForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,12 +86,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ScreensaverForm.resx">
-      <DependentUpon>ScreensaverForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
