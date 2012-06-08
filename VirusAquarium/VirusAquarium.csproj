@@ -72,11 +72,31 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\BehaviorBundle.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BehaviorBundle.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Simulation\Activities\BlueScreenActivity.cs" />
+    <Compile Include="Simulation\Activities\BootingActivity.cs" />
+    <Compile Include="Simulation\Activities\ComputerActivity.cs" />
+    <Compile Include="Simulation\Activities\IdlingActivity.cs" />
+    <Compile Include="Simulation\Activities\LoggingInActivity.cs" />
+    <Compile Include="Simulation\Activities\OffActivity.cs" />
+    <Compile Include="Simulation\Activities\StartupActivity.cs" />
     <Compile Include="Simulation\ActivitySubject.cs" />
+    <Compile Include="Simulation\AIUser.cs" />
     <Compile Include="Simulation\Computer.cs" />
+    <Compile Include="Simulation\Events\Event.cs" />
     <Compile Include="Simulation\MasterControl.cs" />
+    <Compile Include="Simulation\Network.cs" />
     <Compile Include="Simulation\Simulation.cs" />
     <Compile Include="Simulation\Virus.cs" />
+    <Compile Include="Resources\VirusBundle.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VirusBundle.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\ComputerIcon.resx">
       <DependentUpon>ComputerIcon.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +118,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Resources\BehaviorBundle.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BehaviorBundle.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\VirusBundle.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>VirusBundle.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,6 +136,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

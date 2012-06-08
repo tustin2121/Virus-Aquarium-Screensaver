@@ -16,8 +16,22 @@ namespace VirusAquarium.Simulation {
 		/// When that happens, the management program will report that "Failsafes have failed" and that
 		/// a virus has escaped. Then, when the screensaver shuts down, it will launch a window on your
 		/// screen that shows a picture which could be considered pron by only the vaugest of definitions.
+		/// Also, as it shuts down, for a split second the big red words "APRIL FOOLS" are splattered across
+		/// all monitors (use negative numbers here to signify this).
 		/// </summary>
 		public int EscapedViruses { get; set; }
 
+
+		public List<Computer> AllComputers { get; set; }
+
+		public Simulation() {
+			AllComputers = new List<Computer>();
+		}
+
+
+		public void Tick() {
+			CurrentTick++;
+			AllComputers.ForEach((c) => c.CPUCycle());
+		}
 	}
 }

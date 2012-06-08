@@ -17,6 +17,7 @@ namespace VirusAquarium
 		private Point lastMouseLoc = Point.Empty;
 		private MasterControl mcp; //master control program
 
+		public List<ComputerIcon> IconList { get; set; }
 		public bool IsPrimary { get; set; }
 
 		public ScreensaverForm(MasterControl masterControlProgram, Rectangle bounds) {
@@ -24,10 +25,11 @@ namespace VirusAquarium
 
 			this.mcp = masterControlProgram;
 			this.Bounds = bounds;
+			this.IconList = new List<ComputerIcon>();
 		}
 
 		public void UpdateView() {
-
+			IconList.ForEach((x) => x.UpdateOperatingStatus());
 		}
 
 		////////////////////////////////////////Events////////////////////////////////////////////
@@ -38,10 +40,6 @@ namespace VirusAquarium
 
 			this.commandBox.Visible = false;
 			this.scrollbackPane.Visible = false;
-
-			var n = new ComputerIcon();
-			n.Location = new Point(this.Bounds.Width/2 - n.ScreenCenter.X, this.Bounds.Height/2 - n.ScreenCenter.Y);
-			this.Controls.Add(n);
 		}
 
 		private void OnMouseMove(object sender, MouseEventArgs e) {

@@ -7,6 +7,26 @@ namespace VirusAquarium {
 	static class Program {
 		static MasterControl masterControlProgram;
 
+		//////////////////////////////////////////////////////////////////////////////////////////
+
+		#region Settings Variables
+		/// <summary>
+		/// Sets whether discretion is taken in displaying bad words, and the disclaimer.
+		/// </summary>
+		public static bool CorprateMode { get; set; }
+		/// <summary>
+		/// The name of the user's network firewall, for realism's sake. Used in status messeages.
+		/// </summary>
+		public static string FirewallName { get; set; }
+		/// <summary>
+		/// Connect to the internet and get updates of real virus names from BitDefender. Part of
+		/// a "Tangental Learning" initiative.
+		/// </summary>
+		public static bool UseRealNames { get; set; }
+		#endregion
+
+		///////////////////////////////////////////////////////////////////////////////////////////
+
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
