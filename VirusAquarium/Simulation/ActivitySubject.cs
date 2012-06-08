@@ -48,7 +48,7 @@ namespace VirusAquarium.Simulation {
 	///////////////////////////////////////////////////////////////////////////
 	#region Download
 
-	public class DownloadItem : ActivitySubject {
+	public abstract class DownloadItem : ActivitySubject {
 		public abstract bool IsInstallable { get; }
 		public bool IsInstalled { get; set; }
 
@@ -66,9 +66,11 @@ namespace VirusAquarium.Simulation {
 		public override bool IsInstallable { get { return false; } }
 	}
 	public class WordDocument : DownloadItem {
+		public override bool IsInstallable { get { return false; } }
 		//macros can be viruses, right?
 	}
 	public class Game : DownloadItem {
+		public override bool IsInstallable { get { return true; } }
 		//Shock the Monkey... O_o
 	}
 

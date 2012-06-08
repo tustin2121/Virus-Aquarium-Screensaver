@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ComputerIcon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ComputerIcon.Designer.cs">
+      <DependentUpon>ComputerIcon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PreviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     <Compile Include="Simulation\MasterControl.cs" />
     <Compile Include="Simulation\Simulation.cs" />
     <Compile Include="Simulation\Virus.cs" />
+    <EmbeddedResource Include="Forms\ComputerIcon.resx">
+      <DependentUpon>ComputerIcon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PreviewForm.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>

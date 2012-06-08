@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using VirusAquarium.Forms;
 
 namespace VirusAquarium
 {
@@ -37,6 +38,10 @@ namespace VirusAquarium
 
 			this.commandBox.Visible = false;
 			this.scrollbackPane.Visible = false;
+
+			var n = new ComputerIcon();
+			n.Location = new Point(this.Bounds.Width/2 - n.ScreenCenter.X, this.Bounds.Height/2 - n.ScreenCenter.Y);
+			this.Controls.Add(n);
 		}
 
 		private void OnMouseMove(object sender, MouseEventArgs e) {
