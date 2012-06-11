@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using VirusAquarium.Simulation.AIModes;
 
 namespace VirusAquarium.Simulation {
 
 	public enum CompAssesement {
 		Healthy, Slow, BootLoop, 
+	}
+	public enum AIMode {
+		BootMachine, CheckEmail, 
+		SurfWeb_News, SurfWeb_Pron, SurfWeb_Emotes, SurfWeb_MySpace, SurfWeb_Wiki, SurfWeb_LOL,
+		CheckTwitter, DownloadAndInstall,
 	}
 
 	/// <summary>
@@ -17,6 +23,19 @@ namespace VirusAquarium.Simulation {
 	/// </summary>
 	public class AIUser {
 		public Computer OwnedComputer { get; set; }
-		
+		public string StatusLine { get; set; }
+		public AIStateMode CurrentMode { get; set; }
+
+		public AIUser() {
+			
+		}
+
+		public void NoteWaitingTime(bool finished) {
+			//TODO determine if machine is "slow"
+		}
+
+		public void StepSimulation() {
+
+		}
 	}
 }

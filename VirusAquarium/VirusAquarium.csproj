@@ -80,6 +80,7 @@
     <Compile Include="Simulation\Activities\BlueScreenActivity.cs" />
     <Compile Include="Simulation\Activities\BootingActivity.cs" />
     <Compile Include="Simulation\Activities\ComputerActivity.cs" />
+    <Compile Include="Simulation\Activities\FrozenActivity.cs" />
     <Compile Include="Simulation\Activities\IdlingActivity.cs" />
     <Compile Include="Simulation\Activities\LoggingInActivity.cs" />
     <Compile Include="Simulation\Activities\OffActivity.cs" />

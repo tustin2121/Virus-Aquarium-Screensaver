@@ -13,6 +13,9 @@ namespace VirusAquarium.Simulation.Activities {
 		public override string Name {
 			get { return "Blue Screen"; }
 		}
+		public override ComputerState State {
+			get { return ComputerState.Crashed; }
+		}
 
 		public override ComputerActivity RunLoop() {
 			if (reboot) this.Computer.Reboot(); //reboot immedeately

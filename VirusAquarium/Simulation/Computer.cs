@@ -7,15 +7,19 @@ using VirusAquarium.Simulation.Activities;
 using VirusAquarium.Simulation.Events;
 
 namespace VirusAquarium.Simulation {
+	public enum ComputerState {
+		Off, Booting, Idling, Unresponsive, Crashed
+	}
+
 	public class Computer {
 		public string Name { get; set; }
 		public Point Location { get; set; }
 
 		public List<Virus> Infections { get; set; }
 		public Network Network { get; set; }
-		public List<Virus> StartupPrograms { get; set; }
+		public List<RunnableProgram> StartupPrograms { get; set; }
 
-		public List<Virus> RunningPrograms { get; set; }
+		public List<RunnableProgram> RunningPrograms { get; set; }
 		public uint Uptime { get; set; }
 		public float CurrentLoad { get; set; }
 		public float CurrentRamUsage { get; set; }
@@ -23,6 +27,9 @@ namespace VirusAquarium.Simulation {
 
 		public ComputerActivity CurrentActivity { get; set; }
 		public float BaseSpeed { get; set; } //amount of runtime to add each cycle, modified by CPU usage, RAM
+		public ComputerState CurrentState { get { 
+
+		} }
 
 		//Fun Stats
 		public int NumEmotesInstalled { get; set; }
@@ -30,8 +37,8 @@ namespace VirusAquarium.Simulation {
 
 		public Computer() {
 			this.Infections = new List<Virus>();
-			this.RunningPrograms = new List<Virus>();
-			this.StartupPrograms = new List<Virus>();
+			this.RunningPrograms = new List<RunnableProgram>();
+			this.StartupPrograms = new List<RunnableProgram>();
 			this.Network = new Network();
 
 			this.BaseSpeed = 1.0f;
@@ -69,7 +76,7 @@ namespace VirusAquarium.Simulation {
 
 
 		public void CPUCycle() {
-			float load = 0, ram = 0;
+			float load = 0, ram = 0.2f; //base load and ram, from OS
 			foreach (Virus v in RunningPrograms) {
 				load += v.CPUUsage(v);
 				ram += v.RAMUsage(v);
@@ -93,6 +100,35 @@ namespace VirusAquarium.Simulation {
 		
 	}
 
+	public class RunnableProgram {
+		public string Name { get; set; }
+		public Computer Host { get; set; }
+
+		public RunnableProgram() { }
+		public RunnableProgram(RunnableProgram clone) {
+			this.Name = clone.Name;
+
+			this.CPUCycle = clone.CPUCycle;
+			this.CPUUsage = clone.CPUUsage;
+			this.RAMUsage = clone.RAMUsage;
+			this.Execute = clone.Execute;
+			this.HandleEvent = clone.HandleEvent;
+		}
+
+		public virtual bool IsRunning { get; protected set; }
+
+		public CPUUsageDel CPUUsage { get; set; }
+		public RAMUsageDel RAMUsage { get; set; }
+		public ExecuteDel Execute { get; set; }
+		public HandleEventDel HandleEvent { get; set; }
+		public CPUCycleDel CPUCycle { get; set; }
+	}
+
+	public delegate float CPUUsageDel(RunnableProgram self);
+	public delegate float RAMUsageDel(RunnableProgram self);
+	public delegate void ExecuteDel(RunnableProgram self);
+	public delegate bool HandleEventDel(RunnableProgram self, Event e); //return true = stop propigation
+	public delegate void CPUCycleDel(RunnableProgram self);
 
 /*#region Activities
 /*	public enum OnScreen {

@@ -8,6 +8,10 @@ namespace VirusAquarium.Simulation.Activities {
 		public override string Name {
 			get { return "Logging In"; }
 		}
+		public override ComputerState State {
+			get { return ComputerState.Booting; }
+		}
+
 		public override ComputerActivity RunLoop() {
 			if (this.Runtime > (3 * this.Computer.RunningPrograms.Count)+15)
 				return new IdlingActivity();

@@ -6,6 +6,7 @@ using System.Text;
 namespace VirusAquarium.Simulation.Activities {
 	public abstract class ComputerActivity {
 		public abstract string Name { get; }
+		public abstract ComputerState State { get; }
 		public float Runtime { get; set; }
 		public Computer Computer { get; set; }
 

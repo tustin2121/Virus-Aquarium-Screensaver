@@ -8,6 +8,10 @@ namespace VirusAquarium.Simulation.Activities {
 		public override string Name {
 			get { return "Booting"; }
 		}
+		public override ComputerState State {
+			get { return ComputerState.Booting; }
+		}
+
 		public override ComputerActivity RunLoop() {
 			if (this.Runtime > 9) return new StartupActivity();
 			return null;

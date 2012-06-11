@@ -13,10 +13,7 @@ namespace VirusAquarium.Simulation {
 		Inactive = -1, Frozen = -2, 
 	}
 
-	public class Virus {
-		public string Name { get; set; }
-		public Computer Host { get; set; }
-
+	public class Virus : RunnableProgram {
 		public VirusStatus Status { get; set; }
 		public string StatusName { get {
 			string key = "Virus_Status_" + Enum.GetName(typeof(VirusStatus), this.Status);
@@ -33,35 +30,17 @@ namespace VirusAquarium.Simulation {
 			}*/
 		} }
 
-		public bool IsRunning() { return Status >= VirusStatus.Passive; }
+		public override bool IsRunning { get { return Status >= VirusStatus.Passive; } }
 
 		public Virus() {
 			this.Name = "Virus.Unknown";
 			this.Status = VirusStatus.Inactive;
 		}
 
-		public Virus(Virus clone) {
-			this.Name = clone.Name;
+		public Virus(Virus clone) : base(clone) {
 			this.Status = VirusStatus.Inactive;
-
-			this.CPUCycle = clone.CPUCycle;
-			this.CPUUsage = clone.CPUUsage;
-			this.RAMUsage = clone.RAMUsage;
-			this.Execute = clone.Execute;
-			this.HandleEvent = clone.HandleEvent;
 		}
 
 		//Behavior
-		public CPUUsageDel CPUUsage { get; set; }
-		public RAMUsageDel RAMUsage { get; set; }
-		public ExecuteDel Execute { get; set; }
-		public HandleEventDel HandleEvent { get; set; }
-		public CPUCycleDel CPUCycle { get; set; }
 	}
-
-	public delegate float CPUUsageDel(Virus self);
-	public delegate float RAMUsageDel(Virus self);
-	public delegate void ExecuteDel(Virus self);
-	public delegate bool HandleEventDel(Virus self, Event e); //return true = stop propigation
-	public delegate void CPUCycleDel(Virus self);
 }
