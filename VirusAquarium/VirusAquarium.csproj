@@ -86,6 +86,9 @@
     <Compile Include="Simulation\Activities\OffActivity.cs" />
     <Compile Include="Simulation\Activities\StartupActivity.cs" />
     <Compile Include="Simulation\ActivitySubject.cs" />
+    <Compile Include="Simulation\AIModes\AIStateMode.cs" />
+    <Compile Include="Simulation\AIModes\BaseStateMode.cs" />
+    <Compile Include="Simulation\AIModes\BootMachineStateMode.cs" />
     <Compile Include="Simulation\AIUser.cs" />
     <Compile Include="Simulation\Computer.cs" />
     <Compile Include="Simulation\Events\Event.cs" />
